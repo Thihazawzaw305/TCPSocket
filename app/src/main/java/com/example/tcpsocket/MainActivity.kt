@@ -21,6 +21,26 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+        setUpListener()
+
+    }
+
+
+    private fun setUpListener() {
+
+        binding.btnCasher.setOnClickListener {
+            startActivity(Intent(this, CasherActivity::class.java))
+        }
+
+        binding.btnWaiter.setOnClickListener {
+            startActivity(Intent(this, WaiterActivity::class.java))
+        }
+
+    }
+
+
+}
+
 //        val adress = "192.168.100.28"
 //        val port = 5000
 //        binding.btnConnect.setOnClickListener {
@@ -52,33 +72,8 @@ class MainActivity : AppCompatActivity() {
 //            } else data = input
 //            binding.appCompatTextView.text = data
 //        }
-//        reader.close()
+//        reader.clos e()
 //        writer.close()
 //        connection.close()
-//    }
-        binding.btnConnect.setOnClickListener {
-            GlobalScope.launch {
-                sendMessage("Thiha ZAW ZAW")
-            }
-        }
-
-        binding.btnNext.setOnClickListener {
-            startActivity(Intent(this,CasherActivity::class.java))
-        }
-    }
-
-    private suspend fun sendMessage(message: String) {
-        val serverAddress = "192.168.100.28" // Replace with your server IP address
-        val serverPort = 12345
-
-        try {
-            val socket = Socket(serverAddress, serverPort)
-            val outputStream: OutputStream = socket.getOutputStream()
-            outputStream.write(message.toByteArray())
-            socket.close()
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-    }
-
-}
+//the
+// thehd
